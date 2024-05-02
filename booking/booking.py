@@ -1,4 +1,7 @@
+import time
+
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 import booking.constands as const
 
 
@@ -21,3 +24,12 @@ class Booking():
 
     def land_first_page(self):
         self.driver.get(const.BASE_URL)
+
+    def change_currency(self, currencyType):
+        currency_element = self.driver.find_element(By.CSS_SELECTOR, "button[aria-label='Prices in Sri Lankan Rupee']")
+        currency_element.click()
+        select_currency = self.driver.find_element(By.XPATH, f"(//div[contains(@class,'ea1163d21f')][normalize-space()='{currencyType}'])[1]")
+        select_currency.click()
+
+
+
