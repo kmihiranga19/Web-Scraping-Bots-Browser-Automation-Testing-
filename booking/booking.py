@@ -39,6 +39,15 @@ class Booking():
         first_result = self.driver.find_element(By.ID, "autocomplete-result-0")
         first_result.click()
 
+    def select_dates(self, check_in_date, check_out_date):
+        check_in_element = self.driver.find_element(By.CSS_SELECTOR, f'span[data-date="{check_in_date}"]')
+        check_in_element.click()
+
+        check_out_element = self.driver.find_element(By.CSS_SELECTOR, f'span[data-date="{check_out_date}"]')
+        check_out_element.click()
+
+    
+
 
 
 
