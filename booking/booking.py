@@ -31,5 +31,17 @@ class Booking():
         select_currency = self.driver.find_element(By.XPATH, f"(//div[contains(@class,'ea1163d21f')][normalize-space()='{currencyType}'])[1]")
         select_currency.click()
 
+    def select_place_to_go(self, place_to_go):
+        search_filed = self.driver.find_element(By.ID, ":re:")
+        search_filed.click()
+        search_filed.send_keys(place_to_go)
+
+        first_result = self.driver.find_element(By.ID, "autocomplete-result-0")
+        first_result.click()
+
+
+
+
+
 
 
