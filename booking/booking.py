@@ -46,7 +46,12 @@ class Booking():
         check_out_element = self.driver.find_element(By.CSS_SELECTOR, f'span[data-date="{check_out_date}"]')
         check_out_element.click()
 
-    
+    def select_adults(self, count):
+        decrease_btn = 
+        while True:
+
+
+
 
 
 
