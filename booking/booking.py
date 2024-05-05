@@ -47,8 +47,30 @@ class Booking():
         check_out_element.click()
 
     def select_adults(self, count):
-        decrease_btn = 
+        selection_element = self.driver.find_element(By.CSS_SELECTOR, 'button[aria-controls=":rf:"]')
+        selection_element.click()
+        decrease_btn = self.driver.find_element(By.XPATH, '//*[@id=":rf:"]/div/div[1]/div[2]/button[1]')
         while True:
+            if decrease_btn.is_enabled():
+                decrease_btn.click()
+            else:
+                break
+
+        int_count = int(count)
+        for i in range(int_count-1):
+            increase_btn = self.driver.find_element(By.XPATH, '//*[@id=":rf:"]/div/div[1]/div[2]/button[2]')
+            increase_btn.click()
+
+        done_btn = self.driver.find_element(By.XPATH, '//*[@id=":rf:"]/button')
+        done_btn.click()
+
+    def click_search(self):
+        search_btn = self.driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]')
+        search_btn.click()
+
+
+
+
 
 
 
