@@ -3,6 +3,7 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import booking.constands as const
+from booking.booking_filtration import BookingFiltration
 
 
 class Booking():
@@ -67,6 +68,10 @@ class Booking():
     def click_search(self):
         search_btn = self.driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]')
         search_btn.click()
+
+    def apply_filtration(self):
+        filtration = BookingFiltration(driver=self)
+
 
 
 
