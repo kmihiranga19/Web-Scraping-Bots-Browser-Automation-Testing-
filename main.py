@@ -7,5 +7,6 @@ with Booking() as bot:
     bot.select_dates("2024-05-06", "2024-06-24")
     bot.select_adults("10")
     bot.click_search()
+    bot.apply_filtration()
 
 
