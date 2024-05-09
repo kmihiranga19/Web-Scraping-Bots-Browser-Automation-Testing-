@@ -7,6 +7,15 @@ class BookingFiltration:
         self.driver = driver
 
     def apply_star_rating(self):
-        star_filtration_box = self.driver.find_element(By.ID, "filter_group_price_:rg:")
+        # scroll down before finding
+        star_filtration_box = self.driver.find_element(By.ID, "filter_group_class_:rs:")
         star_child_elements = star_filtration_box.find_elements(By.CSS_SELECTOR, "*")
-        print(len(star_child_elements))
+
+        for star_child_element in star_child_elements:
+            if star_child_element.get_attribute('data-filters-item') == "class:class=1":
+                star_child_element.click()
+                break
+            else:
+                print(star_child_element.get_attribute('innerHTML'))
+
+

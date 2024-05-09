@@ -70,7 +70,7 @@ class Booking():
         search_btn.click()
 
     def apply_filtration(self):
-        filtration = BookingFiltration(driver=self)
+        filtration = BookingFiltration(driver=self.driver)
         filtration.apply_star_rating()
 
 
