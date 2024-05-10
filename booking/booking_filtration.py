@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 
@@ -7,8 +9,9 @@ class BookingFiltration:
         self.driver = driver
 
     def apply_star_rating(self):
-        # scroll down before finding
-        star_filtration_box = self.driver.find_element(By.ID, "filter_group_class_:rs:")
+        self.driver.execute_script("window.scrollTo(0, 2000)")
+        time.sleep(3)
+        star_filtration_box = self.driver.find_element(By.ID, "filter_group_class_:r26:")
         star_child_elements = star_filtration_box.find_elements(By.CSS_SELECTOR, "*")
 
         for star_child_element in star_child_elements:
