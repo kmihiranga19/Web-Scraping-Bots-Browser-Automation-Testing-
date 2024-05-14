@@ -16,7 +16,7 @@ class BookingFiltration:
             dismiss_button = self.driver.find_element(By.CSS_SELECTOR, 'button[aria-label="Dismiss sign-in info."]')
             dismiss_button.click()
             time.sleep(3)
-            star_filtration_box = self.driver.find_element(By.ID, "filter_group_class_:r26:")
+            star_filtration_box = self.driver.find_element(By.ID, "filter_group_class_:r18:")
             star_child_elements = star_filtration_box.find_elements(By.CSS_SELECTOR, "*")
 
             for star_value in star_values:
@@ -24,8 +24,9 @@ class BookingFiltration:
                     if star_child_element.get_attribute('data-filters-item') == f'class:class="{star_value}"':
                         star_child_element.click()
 
+
         except NoSuchElementException:
-            star_filtration_box = self.driver.find_element(By.ID, "filter_group_class_:r26:")
+            star_filtration_box = self.driver.find_element(By.ID, "filter_group_class_:r18:")
             star_child_elements = star_filtration_box.find_elements(By.CSS_SELECTOR, "*")
 
             for star_value in star_values:
@@ -39,4 +40,3 @@ class BookingFiltration:
         time.sleep(2)
         low_to_high = self.driver.find_element(By.ID, "class_asc")
         low_to_high.click()
-
