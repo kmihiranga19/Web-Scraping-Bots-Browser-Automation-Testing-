@@ -24,7 +24,6 @@ class BookingFiltration:
                     if star_child_element.get_attribute('data-filters-item') == f'class:class="{star_value}"':
                         star_child_element.click()
 
-
         except NoSuchElementException:
             star_filtration_box = self.driver.find_element(By.ID, "filter_group_class_:r26:")
             star_child_elements = star_filtration_box.find_elements(By.CSS_SELECTOR, "*")
@@ -33,3 +32,11 @@ class BookingFiltration:
                 for star_child_element in star_child_elements:
                     if star_child_element.get_attribute('data-filters-item') == f'class:class="{star_value}"':
                         star_child_element.click()
+
+    def low_to_high(self):
+        sort_by_filter = self.driver.find_element(By.CSS_SELECTOR, 'button[data-testid = "sorters-dropdown-trigger"]')
+        sort_by_filter.click()
+        time.sleep(2)
+        low_to_high = self.driver.find_element(By.ID, "class_asc")
+        low_to_high.click()
+

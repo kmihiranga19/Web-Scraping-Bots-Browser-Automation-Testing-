@@ -72,6 +72,7 @@ class Booking():
     def apply_filtration(self):
         filtration = BookingFiltration(driver=self.driver)
         filtration.apply_star_rating(2, 3, 4)
+        filtration.low_to_high()
 
 
 
